@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="icon" type="image/png" href="img/tab-icon.png"/>
+</head>
+
+<body>
+    <section id="homepage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <a href="#secondPage" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-plus">Add</a>
+
+            <p class="ui-title">Contacts</p>
+        </header>
+        <article data-role="content" data-theme="b">
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="Search contact..." data-inset="true"
+                data-split-icon="phone" data-split-theme="b" id="ListElement">
+            </ul>
+        </article>
+        <footer data-role="footer" data-theme="b" style="text-align:center; position: fixed; bottom: 0px; left: 0px; right: 0px; margin-bottom: 0px;">
+            <p class="ui-title">Contact List</p>
+        </footer>
+    </section>
+
+
+    <section data-role="page" id="secondPage" data-theme="b">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>New Contact</h1>
+        </header>
+
+        <article data-role="content">
+            <form name="x" onsubmit="return addContact()">
+                <span style="width: 1%; display: inline;">Name</span>
+                <input type="text" id="name" required>
+                <label>Phone</label>
+                <input type="tel" placeholder="01X-XXXX-XXXX" pattern="^01[0-2,5]{1}[0-9]{8}" maxlength="11" id="mobile" required>
+                <label>Email</label>
+                <input type="email" id="email">
+                <fieldset id="gender" style="width:49%;">
+                    <legend>Gender</legend>
+                    <div>
+                        <input type="radio" id="genderMale" name="gender" checked>
+                        <label for="genderMale">Male</label>
+                    </div>
+ 
+                    <div>
+                        <input type="radio" id="genderFemale" name="gender">
+                        <label for="genderFemale">Female</label>
+                    </div>
+                </fieldset>
+                <button id="add" style="width: 49%; background-color: rgba(128, 128, 128,0.1); display: inline-block;" class=" ui-btn ui-btn-b ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all"
+                data-form="ui-btn-up-b">
+                <input type="submit" value="Save">
+            </button>
+            <button id="add" style="width: 49%; background-color: rgba(128, 128, 128,0.1); display: inline-block; " class=" ui-btn ui-btn-b ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all"
+                data-form="ui-btn-up-b">
+                <input type="reset" value="Reset">
+            </button>
+            </form>
+        </article>
+
+        <footer data-role="footer"  style="text-align:center; position: fixed; bottom: 0px; left: 0px; right: 0px; margin-bottom: 0px;">
+            <h1>Contact List</h1>
+        </footer>
+    </section>
+
+
+    <section data-theme="b" data-role="page" id="thirdpage">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Contact</h1>
+        </header>
+        <article data-role="content">
+            <div style=" width: 50%; float: left; font-size: xx-small;">
+            <h1  id="viewContactImage"></h1>
+            <a data-role='button' id='btn-1' data-icon='delete' id="viewDeleteButton" onclick="deleteContact()" style='width: 14% ; font-size: x-small; display: inline-block; margin-right: 1%;' >Delete</a>
+            <a data-role='button' id='btn-1' data-icon='edit' id="viewEditButton" onclick="editContact()" style='width: 10% ; font-size: x-small; display: inline-block; margin-right: 1%;' >Edit</a>
+            <a data-role='button' data-icon='phone' id="viewPhoneButton" style='width: 8% ; font-size: x-small; display: inline-block;'>Call</a>
+        </div>
+        <div style=" width: 50%;left: 50%; position: absolute;">
+                <form id="editForm" onsubmit="return false">
+                <label>Name</label>
+                <input type="text" id="viewName" readonly required>
+                <label>Phone</label>
+                <input type="tel" id="viewPhone" readonly required pattern="^01[0-2,5]{1}[0-9]{8}" maxlength="11">
+                <label>Email</label>
+                <input type="email" id="viewEmail" readonly>
+                <label>Gender</label>
+                <input type ="text" id="viewGender" readonly >
+                <input type="hidden" value="Save" id="editSubmit" style="width: 49%; background-color: rgba(128, 128, 128,0.1); display: inline-block;" class=" ui-btn ui-btn-b ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all"
+                data-form="ui-btn-up-b">
+                <input type="hidden" value="Cancel" id="editCancel" style="width: 49%; background-color: rgba(128, 128, 128,0.1); display: inline-block;" class=" ui-btn ui-btn-b ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all"
+                data-form="ui-btn-up-b">
+                </form>
+        </div>
+        </article>
+        <footer data-role="footer" style="text-align:center; position: fixed; bottom: 0px; left: 0px; right: 0px; margin-bottom: 0px;">
+                <h1>Contact</h1>
+        </footer>
+    </section>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js">
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+    </script>
+    <script src="index.js"></script>
+
+    
+</body>
+
+</html>
